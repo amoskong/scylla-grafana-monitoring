@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sudo docker run -d -v $PWD/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:Z -p 9090:9090 --name aprom prom/prometheus:v1.0.0
+#sudo docker run -d -v $PWD/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:Z -p 9090:9090 --name aprom prom/prometheus:v1.0.0
+sudo docker run -d -v ~/latest/job1.3/data/:/prometheus -v $PWD/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:Z -p 9090:9090 --name aprom prom/prometheus:v1.0.0
 
 sudo docker run -d -i -p 3000:3000 \
      -e "GF_AUTH_BASIC_ENABLED=false" \
